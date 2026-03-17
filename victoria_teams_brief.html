@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victoria Teams · Brand Brief & Growth Plan 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e0d0b;--ink2:#3a3830;--ink3:#7a7568;
+  --paper:#f5f2eb;--paper2:#ede9e0;--paper3:#e3ddd2;
+  --accent:#c8522a;--accent2:#e8956a;--gold:#b89a4a;
+  --blue:#2a4a6e;--blue-l:#d6e2f0;--green:#2e5e3a;--green-l:#d4e8d9;
+  --purple:#4a3570;--purple-l:#e0d8f0;--red:#8b2020;--red-l:#f5d6d6;
+  --amber:#ba7517;--amber-l:#faeeda;
+  --border:rgba(14,13,11,0.1);--border-s:rgba(14,13,11,0.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:14px}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.45}
+
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:200;background:var(--ink);display:flex;align-items:center;padding:0 40px;border-bottom:1px solid rgba(255,255,255,.08);overflow-x:auto}
+.topbar-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:15px;color:var(--paper);padding:14px 0;margin-right:28px;white-space:nowrap;letter-spacing:-.01em}
+.topbar-brand span{color:var(--accent)}
+.nav-tab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:16px 14px;color:rgba(245,242,235,.45);cursor:pointer;border-bottom:2px solid transparent;transition:all .18s;white-space:nowrap;flex-shrink:0}
+.nav-tab:hover{color:rgba(245,242,235,.8)}
+.nav-tab.active{color:var(--paper);border-bottom-color:var(--accent)}
+.topbar-date{margin-left:auto;font-family:'DM Mono',monospace;font-size:10px;color:rgba(245,242,235,.3);white-space:nowrap;padding-left:20px}
+
+/* PANELS */
+.panel{display:none;padding:48px 40px 80px;max-width:1100px}
+.panel.active{display:block}
+
+/* SECTION LABEL */
+.slabel{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;padding-bottom:7px;border-bottom:1px solid var(--border)}
+.slabel-accent{color:var(--accent)}
+
+/* HERO HEADLINE */
+.hero{margin-bottom:40px}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px}
+.hero-title em{color:var(--accent);font-style:normal}
+.hero-sub{font-size:15px;color:var(--ink3);font-weight:300;max-width:640px;line-height:1.7}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:24px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:24px}
+
+/* CARDS */
+.card{background:var(--paper2);border-radius:10px;padding:18px 20px}
+.card-white{background:white;border:1px solid var(--border-s);border-radius:10px;padding:18px 20px}
+.card h4{font-size:13px;font-weight:500;margin-bottom:6px}
+.card p,.card-white p{font-size:12px;color:var(--ink3);line-height:1.6}
+.card-white h4{font-size:13px;font-weight:500;margin-bottom:6px}
+.card-accent{border-left:3px solid var(--accent)}
+.card-blue{border-left:3px solid var(--blue)}
+.card-green{border-left:3px solid var(--green)}
+.card-purple{border-left:3px solid var(--purple)}
+.card-gold{border-left:3px solid var(--gold)}
+.card-red{border-left:3px solid var(--red)}
+
+/* STAT CARDS */
+.stat{background:var(--paper2);border-radius:10px;padding:16px 18px}
+.stat-n{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;line-height:1;margin-bottom:4px}
+.stat-l{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.stat-sub{font-size:11px;color:var(--ink3);margin-top:4px}
+.stat-n.accent{color:var(--accent)}
+.stat-n.green{color:var(--green)}
+.stat-n.gold{color:var(--gold)}
+.stat-n.blue{color:var(--blue)}
+.stat-n.red{color:var(--red)}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 10px;border-radius:99px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:.04em}
+.b-red{background:var(--red-l);color:var(--red)}
+.b-green{background:var(--green-l);color:var(--green)}
+.b-amber{background:var(--amber-l);color:var(--amber)}
+.b-blue{background:var(--blue-l);color:var(--blue)}
+.b-purple{background:var(--purple-l);color:var(--purple)}
+.b-gray{background:var(--paper3);color:var(--ink3);border:1px solid var(--border-s)}
+
+/* FINDINGS */
+.finding{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.finding:last-child{border-bottom:none}
+.fd{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.fd-red{background:var(--red)}
+.fd-amber{background:var(--amber)}
+.fd-green{background:var(--green)}
+.fd-blue{background:var(--blue)}
+.finding-body{font-size:12px;color:var(--ink2);line-height:1.55;flex:1}
+.finding-body strong{color:var(--ink);font-weight:500}
+
+/* VERDICT BOX */
+.verdict{background:var(--ink);color:var(--paper);border-radius:10px;padding:24px 28px;margin-bottom:24px}
+.verdict-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,242,235,.45);margin-bottom:8px}
+.verdict-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.4}
+.verdict-text em{color:var(--accent2);font-style:normal}
+
+/* BUDGET TABLE */
+.btable{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:12px}
+.btable th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:8px 14px;text-align:left;border-bottom:1px solid var(--border-s)}
+.btable td{padding:9px 14px;border-bottom:1px solid var(--border)}
+.btable tr:last-child td{border-bottom:none}
+.btable tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+.btable .total td{font-weight:500;background:var(--paper2)!important;border-top:1px solid var(--border-s)}
+.btable td:not(:first-child){text-align:right}
+.btable th:not(:first-child){text-align:right}
+
+/* ACTION PLAN */
+.month-block{margin-bottom:32px}
+.month-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;cursor:pointer;user-select:none}
+.month-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:var(--paper3);line-height:1;width:52px;flex-shrink:0}
+.month-info{flex:1}
+.month-name{font-size:16px;font-weight:500;margin-bottom:2px}
+.month-theme{font-size:12px;color:var(--ink3);font-style:italic}
+.month-toggle{font-size:10px;color:var(--ink3);font-family:'DM Mono',monospace;letter-spacing:.06em;transition:transform .2s}
+.tasks{display:flex;flex-direction:column;gap:5px;padding-left:66px}
+.tasks.closed{display:none}
+.task{display:flex;gap:10px;align-items:flex-start;padding:9px 14px;border-radius:8px;background:var(--paper2);cursor:pointer;transition:background .15s}
+.task:hover{background:var(--paper3)}
+.task-chk{width:17px;height:17px;border-radius:4px;border:1.5px solid var(--border-s);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.task.done .task-chk{background:var(--green);border-color:var(--green)}
+.task.done .task-chk::after{content:'✓';font-size:10px;color:white}
+.task-body{flex:1}
+.task-title{font-size:12px;font-weight:500;line-height:1.4}
+.task.done .task-title{text-decoration:line-through;opacity:.45}
+.task-meta{font-size:11px;color:var(--ink3);margin-top:2px;display:flex;gap:8px;flex-wrap:wrap}
+.task-tag{display:inline-block;background:var(--paper3);border-radius:4px;padding:1px 7px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.04em}
+.task-tag.strategy{background:var(--purple-l);color:var(--purple)}
+.task-tag.brand{background:var(--amber-l);color:var(--amber)}
+.task-tag.biz{background:var(--green-l);color:var(--green)}
+.task-tag.ops{background:var(--blue-l);color:var(--blue)}
+.task-tag.content{background:var(--red-l);color:var(--accent)}
+.priority-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.p1{background:var(--red)}
+.p2{background:var(--amber)}
+.p3{background:var(--green)}
+
+/* POSICIONAMIENTO CANVAS */
+.pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border-s);border-radius:10px;overflow:hidden;margin-bottom:24px}
+.pos-cell{background:var(--paper);padding:20px 24px}
+.pos-cell-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+.pos-cell-content{font-size:13px;color:var(--ink2);line-height:1.6}
+.pos-cell-content strong{color:var(--ink);font-weight:500}
+
+/* DIVIDER */
+.div{display:flex;align-items:center;gap:14px;margin:28px 0 20px}
+.div-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.div-line{flex:1;height:1px;background:var(--border)}
+
+/* ALERT BOX */
+.alert{border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:12px;line-height:1.6}
+.alert strong{font-weight:500;display:block;margin-bottom:3px}
+.alert-red{background:var(--red-l);border-left:3px solid var(--red);color:#4a1010}
+.alert-green{background:var(--green-l);border-left:3px solid var(--green);color:#0d2e17}
+.alert-amber{background:var(--amber-l);border-left:3px solid var(--amber);color:#3d2a05}
+.alert-blue{background:var(--blue-l);border-left:3px solid var(--blue);color:#0c2a4a}
+
+/* SCORE ROW */
+.score-row{display:flex;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.score-row:last-child{border-bottom:none}
+.score-label{font-size:12px;color:var(--ink2);flex:1}
+.score-bar-wrap{width:160px;height:6px;background:var(--paper3);border-radius:3px;overflow:hidden}
+.score-bar{height:100%;border-radius:3px}
+.score-val{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);width:32px;text-align:right}
+
+/* VERTICAL CARDS */
+.vert-card{background:var(--paper2);border-radius:10px;padding:18px 20px;margin-bottom:12px;border-left:3px solid transparent}
+.vert-card h4{font-size:13px;font-weight:500;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.vert-card p{font-size:12px;color:var(--ink3);line-height:1.55;margin-bottom:8px}
+.vert-card .vert-why{font-size:11px;font-style:italic;color:var(--ink3);border-top:1px solid var(--border);padding-top:7px;margin-top:4px}
+
+/* FOOTER */
+.foot{margin-top:60px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.foot-brand{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--ink3)}
+.foot-note{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);letter-spacing:.05em}
+
+@media(max-width:680px){
+  .topbar{padding:0 16px}
+  .panel{padding:28px 16px 60px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .tasks{padding-left:0}
+  .pos-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-brand">Victoria <span>Teams</span></div>
+  <div class="nav-tab active" onclick="show('brief')">Brief</div>
+  <div class="nav-tab" onclick="show('auditoria')">Auditoría</div>
+  <div class="nav-tab" onclick="show('posicionamiento')">Posicionamiento</div>
+  <div class="nav-tab" onclick="show('mercado')">Mercado</div>
+  <div class="nav-tab" onclick="show('presupuesto')">Presupuesto</div>
+  <div class="nav-tab" onclick="show('plan')">Plan CEO</div>
+  <div class="topbar-date">Marzo 2026 · Confidencial</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 1 · BRIEF -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="panel active" id="brief">
+  <div class="hero">
+    <div class="hero-eyebrow">Brand Brief · Victoria Teams LLC</div>
+    <h1 class="hero-title">La agencia americana<br>para el <em>mercado latino</em></h1>
+    <p class="hero-sub">Talento senior latinoamericano certificado internacionalmente, potenciado con IA, al servicio de empresas americanas que necesitan conectar con la audiencia latina más poderosa del mundo.</p>
+  </div>
+
+  <div class="div"><span class="div-label">Identidad de la empresa</span><div class="div-line"></div></div>
+
+  <div class="g2">
+    <div class="card card-accent">
+      <h4>Qué es Victoria Teams</h4>
+      <p>Agencia de marketing digital con modelo de talento senior latino + IA. Diseñada para ejecutar en los estándares de las grandes ligas americanas — a precio accesible para empresas medianas y emprendedores. Fundada en Miami, LLC, operación nacional en EEUU.</p>
+    </div>
+    <div class="card card-blue">
+      <h4>Quiénes la lideran</h4>
+      <p><strong style="color:var(--ink)">Julio Ortiz</strong> — Founder & Creative Director. 17+ años en industria publicitaria. Cannes Lions Winner, D&AD Winner, Effie Latam Winner. Ha liderado campañas en Brasil, Colombia, EEUU y más mercados Latam.<br><br>
+      <strong style="color:var(--ink)">Katherine Silva</strong> — Managing Director. Estructura operativa y entrega de cuentas.</p>
+    </div>
+  </div>
+
+  <div class="g4">
+    <div class="stat">
+      <div class="stat-n accent">$24,886</div>
+      <div class="stat-l">Fee mensual BDI</div>
+      <div class="stat-sub">Único cliente activo · Apr 2026–Mar 2027</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n red">100%</div>
+      <div class="stat-l">Concentración revenue</div>
+      <div class="stat-sub">Riesgo existencial si BDI no renueva</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n gold">40%</div>
+      <div class="stat-l">Margen neto objetivo</div>
+      <div class="stat-sub">Por cliente / por proyecto</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n green">5+</div>
+      <div class="stat-l">Clientes fee fijo meta</div>
+      <div class="stat-sub">Visión 2–3 años</div>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Servicios actuales</span><div class="div-line"></div></div>
+
+  <div class="g3">
+    <div class="card-white">
+      <h4>Social Media Management</h4>
+      <p>Estrategia, calendarios, content strategy, community management. Gestión activa de plataformas.</p>
+    </div>
+    <div class="card-white">
+      <h4>Brand Campaigns</h4>
+      <p>Campañas alineadas a objetivos. Mensajes que conectan con mercado latino desde visión senior.</p>
+    </div>
+    <div class="card-white">
+      <h4>Endomarketing</h4>
+      <p>Cultura organizacional, motivación interna, alineación de equipos con valores de marca.</p>
+    </div>
+    <div class="card-white">
+      <h4>Web Development</h4>
+      <p>Sitios funcionales, diseño y performance. Experiencias digitales accesibles en cualquier dispositivo.</p>
+    </div>
+    <div class="card-white">
+      <h4>UX/UI Design</h4>
+      <p>Interfaces intuitivas y visualmente impactantes. Experiencias memorables con la marca.</p>
+    </div>
+    <div class="card-white">
+      <h4>AI Tools & Production</h4>
+      <p>Imagen, audio y contenido con IA. Primera agencia en hacer campaña AI-driven para seguros en EEUU.</p>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Work portfolio (web)</span><div class="div-line"></div></div>
+  <div class="g2">
+    <div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Best Doctors Insurance</strong> — Brand Campaign "Your Best Life", Social Media Impact, AI Image Bank, AI Voice Generation, Endomarketing "You Are One of the Best", Event Comms World Champions Tour, Communication for Saving Lives.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>American Express</strong> — User Experience Journey, "Inspiring Key Decision-Makers" (con Bancolombia), "A Day in the Life of a User", "Reinforcing Premium Positioning".</div></div>
+    </div>
+    <div>
+      <div class="alert alert-amber">
+        <strong>Observación de auditoría</strong>
+        El portafolio está completamente dominado por BDI (8 de 10 piezas) y Amex (3 piezas). Excelente calidad de cliente — pero el Work no demuestra amplitud de industrias ni alcance nacional. Un prospecto nuevo no puede ver qué más puede hacer Victoria.
+      </div>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Clientes en desarrollo</span><div class="div-line"></div></div>
+  <div class="g4">
+    <div class="card"><h4>Banco Caribe</h4><p>Fintech / banca. Alto potencial retainer si entra.</p></div>
+    <div class="card"><h4>Guilty Dream</h4><p>Por definir categoría. En proceso.</p></div>
+    <div class="card"><h4>BNY</h4><p>Financial services. Ticket potencialmente alto.</p></div>
+    <div class="card"><h4>Imprenta</h4><p>Proyecto puntual. Convertir a retainer.</p></div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-brand">Victoria Teams</div>
+    <div class="foot-note">Brand Brief · Uso interno · Marzo 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 2 · AUDITORÍA -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="panel" id="auditoria">
+  <div class="hero">
+    <div class="hero-eyebrow">Auditoría de ecosistema digital</div>
+    <h1 class="hero-title">Lo que el mercado<br>ve hoy de <em>Victoria</em></h1>
+    <p class="hero-sub">Análisis de victoriateams.com, Instagram @victoria_teams, LinkedIn personal y empresa. Diagnóstico honesto — sin suavizar.</p>
+  </div>
+
+  <!-- WEB -->
+  <div class="div"><span class="div-label">victoriateams.com · Auditoría</span><div class="div-line"></div></div>
+
+  <div class="g2">
+    <div>
+      <div class="slabel">Hallazgos críticos</div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>Tagline débil y genérico:</strong> "AI-Enhanced Senior Talent to your needs" no dice nada. No posiciona, no diferencia, no activa emoción. Cualquier agencia podría firmarlo.</div></div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>El mercado latino no aparece en ningún lugar.</strong> Siendo la principal propuesta de valor — acceso al mercado latino vía talento nativo — esto no existe en la web. Un prospecto americano no puede entender por qué Victoria es distinta.</div></div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>Julio Ortiz no existe en la web.</strong> Cannes Lions, D&AD, Effie Latam — credenciales que ninguna agencia pequeña americana puede igualar — están completamente ausentes. La web no tiene sección de equipo ni founder story.</div></div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>Sin CTA ni punto de conversión claro.</strong> Solo hay un link de Contact. No hay propuesta de primer paso, no hay lead magnet, no hay forma de agendar una llamada directamente.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Navegación de 3 páginas: Home, Work, Contact.</strong> No hay About, no hay servicios con precio orientativo, no hay proceso de trabajo. El usuario no sabe cómo funciona trabajar con Victoria.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Portfolio sin contexto ni resultados.</strong> Las piezas del Work tienen títulos pero no dicen qué problema resolvieron, qué resultados produjo el trabajo, ni cuál fue el brief original.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Clientes ancla de primer nivel.</strong> American Express y Best Doctors Insurance son logos que generan credibilidad inmediata. Eso es un activo enorme — pero está enterrado en el scroll sin énfasis.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Estética limpia y profesional.</strong> El diseño es sobrio y no embarrassing. Buena base para refactorizar sin reconstruir desde cero.</div></div>
+    </div>
+    <div>
+      <div class="slabel">Score por dimensión</div>
+      <div class="score-row"><span class="score-label">Mensaje / propuesta de valor</span><div class="score-bar-wrap"><div class="score-bar" style="width:20%;background:var(--red)"></div></div><span class="score-val">2/10</span></div>
+      <div class="score-row"><span class="score-label">Diferenciación visible</span><div class="score-bar-wrap"><div class="score-bar" style="width:15%;background:var(--red)"></div></div><span class="score-val">1/10</span></div>
+      <div class="score-row"><span class="score-label">Credibilidad / equipo</span><div class="score-bar-wrap"><div class="score-bar" style="width:20%;background:var(--red)"></div></div><span class="score-val">2/10</span></div>
+      <div class="score-row"><span class="score-label">Conversión (CTA, contacto)</span><div class="score-bar-wrap"><div class="score-bar" style="width:30%;background:var(--amber)"></div></div><span class="score-val">3/10</span></div>
+      <div class="score-row"><span class="score-label">Portfolio / casos de éxito</span><div class="score-bar-wrap"><div class="score-bar" style="width:40%;background:var(--amber)"></div></div><span class="score-val">4/10</span></div>
+      <div class="score-row"><span class="score-label">SEO / visibilidad</span><div class="score-bar-wrap"><div class="score-bar" style="width:15%;background:var(--red)"></div></div><span class="score-val">1/10</span></div>
+      <div class="score-row"><span class="score-label">Calidad de clientes mostrados</span><div class="score-bar-wrap"><div class="score-bar" style="width:80%;background:var(--green)"></div></div><span class="score-val">8/10</span></div>
+      <div class="score-row"><span class="score-label">Diseño / estética</span><div class="score-bar-wrap"><div class="score-bar" style="width:60%;background:var(--gold)"></div></div><span class="score-val">6/10</span></div>
+      <br>
+      <div class="alert alert-red">
+        <strong>Veredicto web</strong>
+        La web actual no convierte. Un prospecto americano que la visita no puede responder las preguntas básicas: ¿quién está detrás?, ¿qué resultados han producido?, ¿cómo empiezo a trabajar con ellos? Necesita una refactorización estratégica urgente, no solo visual.
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="div"><span class="div-label">Instagram @victoria_teams · Auditoría</span><div class="div-line"></div></div>
+  <div class="g2">
+    <div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>Cuenta sin actividad consistente.</strong> El perfil existe pero no hay presencia activa. Para una agencia de marketing digital, esto es la señal más negativa posible — le dice al prospecto "no practicamos lo que vendemos".</div></div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>Sin bio optimizada para prospección.</strong> No hay propuesta de valor clara para el visitante americano, no hay link estratégico (Calendly, landing, portafolio).</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Sin contenido de thought leadership.</strong> El CEO tiene 17+ años de experiencia y premios internacionales. Ese conocimiento no está siendo distribuido como contenido — es el mayor activo sin activar.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Oportunidad de bilingual content no explotada.</strong> Victoria es una agencia bicultural. El contenido en inglés dirigido a empresas americanas, con una voz latina auténtica, es exactamente lo que diferencia en el feed.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Handle @victoria_teams es limpio y disponible.</strong> Buen punto de partida para construir presencia.</div></div>
+    </div>
+    <div>
+      <div class="slabel">Score Instagram</div>
+      <div class="score-row"><span class="score-label">Frecuencia de publicación</span><div class="score-bar-wrap"><div class="score-bar" style="width:10%;background:var(--red)"></div></div><span class="score-val">1/10</span></div>
+      <div class="score-row"><span class="score-label">Calidad de contenido</span><div class="score-bar-wrap"><div class="score-bar" style="width:20%;background:var(--red)"></div></div><span class="score-val">N/A</span></div>
+      <div class="score-row"><span class="score-label">Bio / posicionamiento</span><div class="score-bar-wrap"><div class="score-bar" style="width:25%;background:var(--red)"></div></div><span class="score-val">2/10</span></div>
+      <div class="score-row"><span class="score-label">Estrategia de contenido</span><div class="score-bar-wrap"><div class="score-bar" style="width:10%;background:var(--red)"></div></div><span class="score-val">0/10</span></div>
+      <div class="score-row"><span class="score-label">Engagement / comunidad</span><div class="score-bar-wrap"><div class="score-bar" style="width:10%;background:var(--red)"></div></div><span class="score-val">0/10</span></div>
+      <br>
+      <div class="alert alert-amber">
+        <strong>Veredicto Instagram</strong>
+        Cuenta fantasma. El potencial es enorme — el founder tiene credenciales de world-class y el nicho (marketing para mercado latino en EEUU) tiene demanda real y poca competencia con este nivel. Cero explotado.
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKEDIN -->
+  <div class="div"><span class="div-label">LinkedIn personal y empresa · Auditoría</span><div class="div-line"></div></div>
+  <div class="g2">
+    <div>
+      <div class="slabel">Julio Ortiz (perfil personal)</div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Credenciales visibles:</strong> "Cannes Lions Winner / D&AD Winner / Effie Latam Winner" aparecen en el headline. Ese es el activo más poderoso de toda la marca Victoria — está bien ubicado aquí.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Sin contenido regular.</strong> No hay posts de thought leadership, no hay casos de éxito compartidos, no hay perspectivas sobre marketing latino en EEUU. El perfil existe pero no atrae.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Sin posicionamiento como experto en mercado latino EEUU.</strong> La bio podría articular explícitamente ese nicho — es el territorio más valioso y no aparece con claridad.</div></div>
+    </div>
+    <div>
+      <div class="slabel">Victoria Teams (página empresa)</div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Descripción sólida en The Org</strong> — "redefinimos el modelo de agencia tradicional, integrando IA generativa con talento latino senior" — pero esa descripción no se traduce al website ni a Instagram.</div></div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>Sin actividad de empresa en LinkedIn.</strong> No hay artículos, no hay casos compartidos, no hay posicionamiento de employer brand que atraiga talento ni clientes.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>LinkedIn es el canal #1 para B2B en EEUU.</strong> Es donde están los CMOs y directores de marketing de empresas medianas americanas. Victoria no tiene presencia donde están sus prospectos.</div></div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Diagnóstico global del ecosistema</div>
+    <div class="verdict-text">Victoria tiene las credenciales de una agencia de <em>primer nivel internacional</em> y la presencia digital de una agencia que acaba de nacer. Esa brecha es el problema central — y también la mayor oportunidad.</div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-brand">Victoria Teams</div>
+    <div class="foot-note">Auditoría Digital · Uso interno · Marzo 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 3 · POSICIONAMIENTO -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="panel" id="posicionamiento">
+  <div class="hero">
+    <div class="hero-eyebrow">Estrategia de posicionamiento</div>
+    <h1 class="hero-title">El territorio que<br><em>nadie más ocupa</em></h1>
+    <p class="hero-sub">Victoria no compite con agencias grandes americanas ni con freelancers baratos. Ocupa un territorio específico, rentable y con demanda creciente.</p>
+  </div>
+
+  <div class="div"><span class="div-label">El territorio</span><div class="div-line"></div></div>
+
+  <div class="verdict">
+    <div class="verdict-label">Posicionamiento propuesto</div>
+    <div class="verdict-text">"La agencia americana para marcas que necesitan <em>conectar auténticamente con el mercado latino</em> — con talento senior certificado internacionalmente y producción potenciada con IA."</div>
+  </div>
+
+  <div class="g2">
+    <div>
+      <div class="slabel">Por qué este territorio gana</div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>El mercado latino en EEUU es el segmento de mayor crecimiento.</strong> Poder adquisitivo de $3.7 trillones, growing faster than any other demographic. Las empresas americanas necesitan comunicación culturalmente inteligente — no traducción.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Julio tiene los premios que ninguna agencia pequeña americana puede igualar.</strong> Cannes, D&AD, Effie Latam no son solo logos — son señales de que el equipo sabe producir trabajo de clase mundial.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>BDI es prueba social de primer nivel.</strong> Que una aseguradora americana te pague $24,886/mes dice más que cualquier tagline. Y que la primera campaña AI-driven en seguros la hiciera Victoria dice que se mueven a la vanguardia.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Modelo accesible vs agencias top.</strong> Las grandes agencias con expertise latino (Zubi, Alma, Dieste) cobran $50,000–$150,000+/mes. Victoria entra en el gap de empresas medianas que necesitan ese nivel de trabajo pero no pueden pagarlo en una agencia grande.</div></div>
+    </div>
+    <div>
+      <div class="slabel">El mapa competitivo</div>
+      <div class="card card-blue" style="margin-bottom:10px">
+        <h4>Agencias grandes latinas (Zubi, Alma, Dieste)</h4>
+        <p>$50k–$150k/mes. Nivel enterprise. Victoria no compite aquí — pero <em>hereda</em> su reputación de categoría.</p>
+      </div>
+      <div class="card card-green" style="margin-bottom:10px">
+        <h4 style="color:var(--green)">→ Victoria Teams (posición ideal)</h4>
+        <p>$8k–$25k/mes. Senior talent + IA. Para empresas medianas americanas con necesidad real de mercado latino. <strong>Este hueco existe y nadie lo ocupa con este perfil.</strong></p>
+      </div>
+      <div class="card card-red">
+        <h4>Freelancers y agencias genéricas</h4>
+        <p>$1k–$5k/mes. Sin especialización, sin senioridad comprobada. No son el mismo producto.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Canvas de posicionamiento</span><div class="div-line"></div></div>
+
+  <div class="pos-grid">
+    <div class="pos-cell">
+      <div class="pos-cell-label">Para quién</div>
+      <div class="pos-cell-content">Empresas americanas medianas y grandes (seguros, fintech, salud, retail, CPG, real estate) que operan en mercados con alta concentración latina o quieren entrar. Emprendedores americanos con visión de escala cultural. CMOs que necesitan ejecución de nivel global sin pagar escala global.</div>
+    </div>
+    <div class="pos-cell">
+      <div class="pos-cell-label">Qué problema resuelve</div>
+      <div class="pos-cell-content">La brecha entre comunicación genérica en español y comunicación culturalmente auténtica que convierte. Las marcas pierden dinero cuando su marketing latino es una traducción — no una estrategia. Victoria hace la segunda.</div>
+    </div>
+    <div class="pos-cell">
+      <div class="pos-cell-label">Cómo lo hace diferente</div>
+      <div class="pos-cell-content">Talento senior premiado internacionalmente (no juniors) + IA generativa para producción (más rápido, más barato, sin perder calidad) + modelo flexible proyecto → retainer que elimina el riesgo de entrada del cliente.</div>
+    </div>
+    <div class="pos-cell">
+      <div class="pos-cell-label">Por qué le deben creer</div>
+      <div class="pos-cell-content">Best Doctors Insurance a $24,886/mes. American Express. Primera campaña AI-driven en seguros en EEUU. Cannes Lions + D&AD + Effie Latam en el equipo fundador. 17+ años de industria en el Creative Director.</div>
+    </div>
+    <div class="pos-cell">
+      <div class="pos-cell-label">Tagline propuesto</div>
+      <div class="pos-cell-content" style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink)">"Senior latino talent for American brands."<br><br><span style="font-size:12px;font-family:'DM Sans',sans-serif;font-weight:300;color:var(--ink3)">Versión larga: "The agency American brands trust to connect with the Latino market — for real."</span></div>
+    </div>
+    <div class="pos-cell">
+      <div class="pos-cell-label">Personalidad de marca</div>
+      <div class="pos-cell-content">Directa. Segura. Con acento propio — no disculpándose por ser latina, sino siendo la versión más sofisticada de eso. Piensa en cómo hablaría un Cannes Lions winner que sabe exactamente lo que vale. No es arrogante — es solvente.</div>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Nueva propuesta de tagline para web y redes</span><div class="div-line"></div></div>
+  <div class="g3">
+    <div class="card card-accent">
+      <h4>Opción A — Directo al mercado</h4>
+      <p style="font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);font-weight:700;margin:8px 0">"We make American brands speak Latin."</p>
+      <p>Para web principal. Posiciona el beneficio exacto para el cliente americano.</p>
+    </div>
+    <div class="card card-blue">
+      <h4>Opción B — Credencial primero</h4>
+      <p style="font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);font-weight:700;margin:8px 0">"Award-winning senior talent. Latino-native strategy."</p>
+      <p>Para LinkedIn y pitches. Golpea primero con la credencial.</p>
+    </div>
+    <div class="card card-green">
+      <h4>Opción C — Beneficio de negocio</h4>
+      <p style="font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);font-weight:700;margin:8px 0">"Senior creative for the US Latino market. Less than you think."</p>
+      <p>Para prospección directa. Rompe la objeción de precio antes de que la digan.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-brand">Victoria Teams</div>
+    <div class="foot-note">Posicionamiento · Uso interno · Marzo 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 4 · MERCADO -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="panel" id="mercado">
+  <div class="hero">
+    <div class="hero-eyebrow">Análisis de mercado · EEUU</div>
+    <h1 class="hero-title">Los 5 verticales donde<br><em>Victoria puede ganar</em></h1>
+    <p class="hero-sub">Industrias con alta presión de comunicación al mercado latino en EEUU, capacidad de pago real y donde las credenciales de Victoria son directamente relevantes.</p>
+  </div>
+
+  <div class="div"><span class="div-label">Verticals prioritarios</span><div class="div-line"></div></div>
+
+  <div class="vert-card" style="border-left-color:var(--accent)">
+    <h4><span class="badge b-red" style="margin:0;margin-right:6px">★ Prioridad 1</span> Seguros & Healthcare</h4>
+    <p>El mercado asegurador latino en EEUU es el más activo en comunicación cultural. El ACA, Medicare Advantage, salud preventiva y seguros de vida para hispanos son categorías con presupuestos de $500k–$5M/año en comunicaciones. BDI es la prueba exacta de que Victoria puede hacer este trabajo. La oportunidad: replicar el modelo BDI con otras aseguradoras nacionales (UnitedHealth, Cigna, Humana, Aflac, MetLife — todas tienen divisiones latinas). Ciudades clave: Miami, Houston, Los Angeles, San Antonio, Chicago.</p>
+    <div class="vert-why">Por qué Victoria gana aquí: ya tienen el caso de éxito del sector. BDI es la referencia perfecta. Este es el vertical donde el cierre de nuevos clientes es más rápido.</div>
+  </div>
+
+  <div class="vert-card" style="border-left-color:var(--blue)">
+    <h4><span class="badge b-blue" style="margin:0;margin-right:6px">★ Prioridad 2</span> Fintech & Servicios Financieros</h4>
+    <p>Los latinos son el segmento de mayor crecimiento en adopción de fintech en EEUU — remesas, neobancos, crédito, inversión. Empresas como Chime, Nubank US, Ualá, Varo, y divisiones latinas de Bank of America, Chase, Wells Fargo necesitan comunicación auténtica. Banco Caribe ya está en el pipeline. American Express ya es cliente — eso es la credencial directa para entrar a todo el sector financiero.</p>
+    <div class="vert-why">Por qué Victoria gana aquí: American Express + Banco Caribe en pipeline es suficiente señal para cualquier CMO financiero. El caso Amex cierra conversaciones.</div>
+  </div>
+
+  <div class="vert-card" style="border-left-color:var(--gold)">
+    <h4><span class="badge b-amber" style="margin:0;margin-right:6px">★ Prioridad 3</span> Retail & CPG (Consumer Packaged Goods)</h4>
+    <p>Walmart, Target, P&G, Unilever, Kimberly-Clark, Goya, Bimbo US — todos tienen estrategias latinas activas o en construcción. Este es el vertical con mayor volumen presupuestal. El entry point es vía proyecto (campaña, lanzamiento de producto, activación) con visión de convertir a retainer. La competencia aquí es más alta, pero las credenciales creativas de Julio (Cannes, D&AD) abren puertas que no se abren con solo social media management.</p>
+    <div class="vert-why">Por qué Victoria puede entrar: el modelo de "awarded creative talent accesible" es exactamente lo que estas marcas buscan cuando quieren calidad sin pagar a una agencia holding company.</div>
+  </div>
+
+  <div class="vert-card" style="border-left-color:var(--green)">
+    <h4><span class="badge b-green" style="margin:0;margin-right:6px">Prioridad 4</span> Real Estate & Desarrollo Inmobiliario</h4>
+    <p>Los latinos representan la mayor tasa de crecimiento en primera compra de vivienda en EEUU. Constructoras, brokerages y desarrolladores en Texas, Florida, Arizona, California, Illinois necesitan materiales culturalmente relevantes. Es un vertical con tickets más bajos ($3k–$8k/mes) pero con volumen de clientes potenciales muy alto y ciclos de venta más cortos.</p>
+    <div class="vert-why">Por qué Victoria gana aquí: endomarketing + brand campaigns + digital — exactamente los servicios que un desarrollador inmobiliario necesita para sus equipos de ventas latinos.</div>
+  </div>
+
+  <div class="vert-card" style="border-left-color:var(--purple)">
+    <h4><span class="badge b-purple" style="margin:0;margin-right:6px">Prioridad 5</span> Educación & Universidades</h4>
+    <p>La enrolment de estudiantes latinos en universidades americanas crece año a año. Community colleges, universidades estatales y privadas en estados con alta población latina tienen presupuestos activos para comunicación de reclutamiento en español. Southern New Hampshire, Arizona State, FIU, UT Austin — todas invierten. Ticket: $5k–$20k/mes.</p>
+    <div class="vert-why">Por qué Victoria puede entrar: este es un vertical donde la voz auténtica latina + digital strategy es exactamente lo que las áreas de admisiones necesitan pero rara vez encuentran a nivel senior.</div>
+  </div>
+
+  <div class="div"><span class="div-label">Mapa geográfico de oportunidad</span><div class="div-line"></div></div>
+  <div class="g2">
+    <div class="card">
+      <h4>Estados con mayor densidad de decisión</h4>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>Texas</strong> — 11.4M latinos. Houston y Dallas tienen concentración masiva de aseguradoras, fintech y CPG.</div></div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body"><strong>California</strong> — 15.6M latinos. LA tiene el ecosistema más grande de marcas con estrategia latina nacional.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>Florida</strong> — 5.8M latinos. Miami ya es base — expansión natural a Orlando y Tampa.</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body"><strong>New York / NJ</strong> — 4.6M latinos. Concentración de financial services y CPG headquarters.</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body"><strong>Illinois / Chicago</strong> — 2.3M latinos. Mercado subutilizado con poca competencia de agencias especializadas.</div></div>
+    </div>
+    <div>
+      <div class="alert alert-blue">
+        <strong>Ventaja operativa de Victoria</strong>
+        Victoria opera 100% remoto. Eso significa que puede servir a un cliente en Houston, otro en Los Angeles y otro en Nueva York simultáneamente — sin los costos de una agencia presencial. Ese modelo es la respuesta correcta para 2026. Los clientes americanos medianos ya no requieren agencia local.
+      </div>
+      <div class="alert alert-green" style="margin-top:12px">
+        <strong>El insight de mercado más importante</strong>
+        El mercado latino en EEUU NO necesita más traducción de mensajes — necesita estrategia original que nazca desde la cultura. Eso es exactamente lo que un equipo senior latino produce. Victoria no es una opción de adaptación — es la opción de creación.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-brand">Victoria Teams</div>
+    <div class="foot-note">Análisis de Mercado · Uso interno · Marzo 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 5 · PRESUPUESTO -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="panel" id="presupuesto">
+  <div class="hero">
+    <div class="hero-eyebrow">Presupuesto de inversión en Victoria</div>
+    <h1 class="hero-title">Lo que hay que<br>invertir para <em>crecer</em></h1>
+    <p class="hero-sub">Tres escenarios según nivel de agresividad. Todos calculados con margen del 40% como piso y ROI en nuevos clientes como norte.</p>
+  </div>
+
+  <div class="div"><span class="div-label">Contexto de mercado · Benchmarks EEUU 2026</span><div class="div-line"></div></div>
+  <div class="g4">
+    <div class="stat"><div class="stat-n blue">$1.5k–5k</div><div class="stat-l">Agencias pequeñas</div><div class="stat-sub">Retainer básico / mes</div></div>
+    <div class="stat"><div class="stat-n gold">$5k–15k</div><div class="stat-l">Agencias mid-size</div><div class="stat-sub">Full-service retainer / mes</div></div>
+    <div class="stat"><div class="stat-n green">$15k–30k</div><div class="stat-l">Agencias enterprise</div><div class="stat-sub">Retainer completo / mes</div></div>
+    <div class="stat"><div class="stat-n accent">$24,886</div><div class="stat-l">Victoria hoy (BDI)</div><div class="stat-sub">Posición mid-to-premium correcta</div></div>
+  </div>
+
+  <div class="alert alert-blue">
+    <strong>Principio de presupuesto</strong>
+    Victoria debe invertir en sí misma como si fuera su mejor cliente. Cada dólar invertido en brand, web, contenido y herramientas es pipeline de nuevos clientes. El retorno no es inmediato — pero sin inversión, no hay crecimiento fuera de BDI.
+  </div>
+
+  <div class="div"><span class="div-label">Escenario A · Mínimo viable — $1,500 – $2,500 / mes</span><div class="div-line"></div></div>
+  <div class="g2">
+    <div>
+      <table class="btable">
+        <thead><tr><th>Partida</th><th>USD/mes</th><th>Nota</th></tr></thead>
+        <tbody>
+          <tr><td>Web redesign (one-time, amortizado 6 meses)</td><td>$300</td><td>$1,800 proyecto / 6</td></tr>
+          <tr><td>Producción contenido IG (4–6 posts/mes)</td><td>$400</td><td>Interno o freelance</td></tr>
+          <tr><td>Herramientas (Calendly, Canva Pro, Buffer)</td><td>$120</td><td>Stack básico</td></tr>
+          <tr><td>LinkedIn ads prospección (test)</td><td>$500</td><td>Segmentado CMOs</td></tr>
+          <tr><td>Copywriter/editor EN (freelance)</td><td>$300</td><td>Web + posts</td></tr>
+          <tr class="total"><td><strong>Total mensual</strong></td><td><strong>~$1,620</strong></td><td>Mínimo viable</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h4>Qué compra este escenario</h4>
+      <p>Presencia digital funcional y no vergonzosa. Web actualizada. IG con ritmo mínimo. LinkedIn con algo de actividad. <strong>No genera tracción agresiva</strong> — pero sí elimina la desventaja de tener ecosistema vacío. Recomendado si hay restricción de caja severa.</p>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Escenario B · Crecimiento real — $3,500 – $5,000 / mes ★ Recomendado</span><div class="div-line"></div></div>
+  <div class="g2">
+    <div>
+      <table class="btable">
+        <thead><tr><th>Partida</th><th>USD/mes</th><th>Nota</th></tr></thead>
+        <tbody>
+          <tr><td>Web redesign estratégico (one-time / 3 meses)</td><td>$600</td><td>$1,800 / 3 o freelance</td></tr>
+          <tr><td>Producción contenido IG (8–12 posts + Reels)</td><td>$800</td><td>Video + diseño</td></tr>
+          <tr><td>LinkedIn personal (Julio) — ghostwriting</td><td>$600</td><td>2–3 posts thought leader/sem</td></tr>
+          <tr><td>LinkedIn ads B2B prospección</td><td>$1,000</td><td>CMOs + Marketing Directors</td></tr>
+          <tr><td>Email outreach (Apollo.io o equivalente)</td><td>$200</td><td>Secuencias a prospectos</td></tr>
+          <tr><td>Herramientas stack completo</td><td>$280</td><td>HubSpot Free + herramientas</td></tr>
+          <tr><td>Fotografía/video Julio (trimestral / 12)</td><td>$150</td><td>Contenido CEO</td></tr>
+          <tr class="total"><td><strong>Total mensual</strong></td><td><strong>~$3,630</strong></td><td>Escenario recomendado</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="card card-green" style="margin-bottom:12px">
+        <h4>Qué compra este escenario</h4>
+        <p>Tracción real. Web que convierte. LinkedIn de Julio como canal de entrada de prospectos. IG con presencia consistente. Pipeline de outreach activo. <strong>Con un solo cliente nuevo a $8k/mes, el ROI es 2.2x en el mes 1.</strong></p>
+      </div>
+      <div class="alert alert-green">
+        <strong>ROI proyectado</strong>
+        Si este presupuesto genera 1 cliente nuevo a $8,000/mes en 90 días, el investment de ~$10,800 (3 meses) produce $96,000 anuales en nuevo revenue. ROI de 8.9x en el primer año.
+      </div>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Escenario C · Agresivo — $7,000 – $10,000 / mes</span><div class="div-line"></div></div>
+  <div class="g2">
+    <div>
+      <table class="btable">
+        <thead><tr><th>Partida</th><th>USD/mes</th><th>Nota</th></tr></thead>
+        <tbody>
+          <tr><td>Web completa + SEO técnico</td><td>$800</td><td>Agencia web senior</td></tr>
+          <tr><td>Producción contenido IG + TikTok</td><td>$1,500</td><td>Video nativo + diseño</td></tr>
+          <tr><td>LinkedIn — Julio + Victoria empresa</td><td>$1,200</td><td>Estrategia + ghostwriting</td></tr>
+          <tr><td>LinkedIn + Google ads B2B</td><td>$2,500</td><td>Lead gen directo</td></tr>
+          <tr><td>PR / earned media (pitcher)</td><td>$1,000</td><td>Menciones en medios ad industry</td></tr>
+          <tr><td>Email outreach + CRM HubSpot Pro</td><td>$600</td><td>Pipeline estructurado</td></tr>
+          <tr><td>Event / conferencias (Ad Week, Hispanicize)</td><td>$500</td><td>Presencia en 2 eventos/año</td></tr>
+          <tr class="total"><td><strong>Total mensual</strong></td><td><strong>~$8,100</strong></td><td>Escenario agresivo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h4>Qué compra este escenario</h4>
+      <p>Victoria se convierte en referente visible del nicho en 6–9 meses. Julio aparece en búsquedas de "latino marketing agency" y en feeds de CMOs americanos. <strong>Recomendado una vez que el segundo cliente esté cerrado</strong> — cuando el riesgo de concentración en BDI baje al 50% o menos.</p>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">Recomendación concreta</span><div class="div-line"></div></div>
+  <div class="g3">
+    <div class="card card-accent">
+      <h4>Ahora (Q2 2026)</h4>
+      <p>Escenario B. $3,500–4,000/mes. Foco en web + LinkedIn Julio + outreach activo. El objetivo único: cerrar el segundo cliente antes de Q3.</p>
+    </div>
+    <div class="card card-gold">
+      <h4>Q3 2026 (segundo cliente cerrado)</h4>
+      <p>Escenario B+ escalado. Agregar TikTok y PR básico. Foco: llegar a 3 clientes fee fijo antes de fin de año.</p>
+    </div>
+    <div class="card card-green">
+      <h4>Q4 2026 – Q1 2027 (3+ clientes)</h4>
+      <p>Escenario C. Invertir agresivo. Victoria tiene caja suficiente para posicionarse como la referencia nacional del nicho.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-brand">Victoria Teams</div>
+    <div class="foot-note">Presupuesto de inversión · Uso interno · Marzo 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 6 · PLAN CEO -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="panel" id="plan">
+  <div class="hero">
+    <div class="hero-eyebrow">Plan de acción CEO · Q2–Q4 2026</div>
+    <h1 class="hero-title">Lo que Julio hace<br><em>semana a semana</em></h1>
+    <p class="hero-sub">Tareas concretas, priorizadas y con dueño claro. Organizado por mes. Marca como completado al ejecutar. Prioridad: rojo = no negociable, naranja = esta semana, verde = cuando haya espacio.</p>
+  </div>
+
+  <div class="g4" style="margin-bottom:28px">
+    <div class="stat"><div class="stat-n accent">M1–M2</div><div class="stat-l">Fundación</div><div class="stat-sub">Web · Posicionamiento · Outreach</div></div>
+    <div class="stat"><div class="stat-n gold">M3–M4</div><div class="stat-l">Tracción</div><div class="stat-sub">Contenido · Pipeline · Primer cliente</div></div>
+    <div class="stat"><div class="stat-n blue">M5–M6</div><div class="stat-l">Conversión</div><div class="stat-sub">Cerrar 2do cliente · Onboarding</div></div>
+    <div class="stat"><div class="stat-n green">M7–M12</div><div class="stat-l">Escala</div><div class="stat-sub">3+ clientes · Brand visible</div></div>
+  </div>
+
+  <!-- MES 1 -->
+  <div class="month-block">
+    <div class="month-header" onclick="toggleMonth('m1')">
+      <div class="month-num">01</div>
+      <div class="month-info">
+        <div class="month-name">Abril 2026 · Fundación del ecosistema</div>
+        <div class="month-theme">Posicionamiento claro · Web refactorizada · LinkedIn activado</div>
+      </div>
+      <div class="month-toggle" id="t-m1">▼</div>
+    </div>
+    <div class="tasks" id="m1">
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Definir el tagline y mensaje central de Victoria Teams</div><div class="task-meta"><span class="task-tag strategy">Estrategia</span><span>Julio + Katherine · 1 sesión de 2h</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Reescribir el homepage de victoriateams.com — nuevo copy con posicionamiento latino market</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Julio redacta · copywriter refina</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Agregar sección "Team" a la web — Julio con credenciales completas (Cannes, D&AD, Effie)</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Es el activo más subutilizado</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Reescribir bio de LinkedIn personal de Julio — posicionar como experto mercado latino EEUU</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Headline + About section + keywords</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Optimizar bio Instagram @victoria_teams — CTA + link a Calendly o web</div><div class="task-meta"><span class="task-tag content">Contenido</span><span>30 minutos de trabajo</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Agregar CTA de "Book a call" visible en web homepage (Calendly)</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Sin CTA la web no convierte</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Construir caso de éxito BDI — 1 página con brief, proceso y resultado</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>El caso ancla para todo el pipeline</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Publicar primeros 4 posts en LinkedIn personal (Julio) — thought leadership sobre marketing latino</div><div class="task-meta"><span class="task-tag content">Contenido</span><span>1/semana · inglés + español</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p3"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Definir la estrategia editorial de Instagram para Q2 — pilares de contenido aprobados</div><div class="task-meta"><span class="task-tag strategy">Estrategia</span><span>Opción A y B antes de ejecutar</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- MES 2 -->
+  <div class="month-block">
+    <div class="month-header" onclick="toggleMonth('m2')">
+      <div class="month-num">02</div>
+      <div class="month-info">
+        <div class="month-name">Mayo 2026 · Outreach y pipeline</div>
+        <div class="month-theme">Primeros 50 prospectos contactados · Instagram con ritmo · Banco Caribe y BNY avanzados</div>
+      </div>
+      <div class="month-toggle" id="t-m2">▼</div>
+    </div>
+    <div class="tasks" id="m2">
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Construir lista de 100 prospectos en EEUU — CMOs / Marketing Directors en seguros, fintech y healthcare con mercado latino</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Apollo.io o LinkedIn Sales Navigator</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Enviar primera secuencia de outreach a 50 prospectos — email + LinkedIn connection</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Copy personalizado por vertical</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Avanzar propuesta formal para Banco Caribe — brief + scope + fee mensual estimado</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Prioridad pipeline activo</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Activar Instagram — 8 posts + 2 Reels en el mes · temática: marketing latino en EEUU</div><div class="task-meta"><span class="task-tag content">Contenido</span><span>Consistencia antes que perfección</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Publicar caso de éxito BDI en LinkedIn — artículo largo + post de distribución</div><div class="task-meta"><span class="task-tag content">Contenido</span><span>Contenido con más ROI de negocio</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Agregar página "How we work" a la web — proceso de 3 pasos, sin tecnicismos</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Elimina la fricción de entrada</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Instalar HubSpot CRM gratuito — registrar todos los prospectos y estados</div><div class="task-meta"><span class="task-tag ops">Ops</span><span>Sin CRM no hay pipeline gestionable</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p3"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Explorar participación en Hispanicize 2026 o Ad Week Latino como speaker o sponsor</div><div class="task-meta"><span class="task-tag strategy">Estrategia</span><span>Visibilidad en el nicho exacto</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- MES 3 -->
+  <div class="month-block">
+    <div class="month-header" onclick="toggleMonth('m3')">
+      <div class="month-num">03</div>
+      <div class="month-info">
+        <div class="month-name">Junio 2026 · Primer cliente nuevo</div>
+        <div class="month-theme">Objetivo: cerrar 1 cliente nuevo con fee fijo antes de julio</div>
+      </div>
+      <div class="month-toggle" id="t-m3">▼</div>
+    </div>
+    <div class="tasks" id="m3">
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Cerrar Banco Caribe o BNY — o el prospecto más avanzado del outreach</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Meta de Q2 no negociable</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Construir proceso de onboarding documentado — primer cliente que entre lo activa</div><div class="task-meta"><span class="task-tag ops">Ops</span><span>Brief template + kickoff + herramientas</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Segunda ronda de outreach — 50 prospectos nuevos con aprendizajes del mes 1</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Iterar mensaje según respuestas anteriores</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Publicar primer Reel de Julio hablando a cámara — perspectiva sobre marketing latino</div><div class="task-meta"><span class="task-tag content">Contenido</span><span>El founder visible es el mayor diferenciador</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Revisar métricas de web (Google Analytics) — qué páginas convierten, qué no</div><div class="task-meta"><span class="task-tag ops">Ops</span><span>Datos reales antes de invertir más en web</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p3"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Lanzar LinkedIn ads — segmentar CMOs / VPs Marketing en seguros y fintech, EEUU</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>$500/mes para test de 2 semanas</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- MES 4-6 -->
+  <div class="month-block">
+    <div class="month-header" onclick="toggleMonth('m4')">
+      <div class="month-num">04–06</div>
+      <div class="month-info">
+        <div class="month-name">Julio – Septiembre 2026 · Escala y segundo cliente</div>
+        <div class="month-theme">2 clientes fee fijo · Instagram con 500+ seguidores orgánicos · Victoria visible en búsquedas</div>
+      </div>
+      <div class="month-toggle" id="t-m4">▼</div>
+    </div>
+    <div class="tasks" id="m4">
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Cerrar segundo cliente fee fijo — reducir concentración BDI a 60% o menos del revenue</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Meta de supervivencia financiera Q3</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Preparar propuesta de renovación BDI para 2027 — entregar en septiembre, no en marzo</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>La renovación se negocia con 6 meses de anticipación</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Construir segundo caso de éxito — cliente nuevo documentado con resultados</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Dos casos = credibilidad cruzada</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Escalar inversión en marca al Escenario B completo — $3,500–4,000/mes</div><div class="task-meta"><span class="task-tag strategy">Estrategia</span><span>Con segundo cliente hay caja para invertir</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Lanzar newsletter mensual de Victoria Teams — perspectiva de mercado latino para CMOs</div><div class="task-meta"><span class="task-tag content">Contenido</span><span>Canal owned que construye autoridad</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Formalizar deck de pitch Victoria Teams — presentable a cualquier prospecto americano</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Agency deck · 12 slides · inglés</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p3"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Evaluar incorporar TikTok como canal de marca — decisión basada en datos de IG</div><div class="task-meta"><span class="task-tag content">Contenido</span><span>Solo si Instagram está funcionando</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p3"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Explorar primeros PR — pitch a Ad Age, Adweek o Hispanic Marketing Council como fuente experta</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Una mención posiciona para siempre</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- MES 7-12 -->
+  <div class="month-block">
+    <div class="month-header" onclick="toggleMonth('m5')">
+      <div class="month-num">07–12</div>
+      <div class="month-info">
+        <div class="month-name">Octubre 2026 – Marzo 2027 · Victoria como referente</div>
+        <div class="month-theme">3–5 clientes fee fijo · Revenue $75k–$125k/mes · Renovación BDI asegurada</div>
+      </div>
+      <div class="month-toggle" id="t-m5">▼</div>
+    </div>
+    <div class="tasks" id="m5">
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Renovar contrato BDI para 2027 — con expansión de scope o fee aumentado</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Negociar desde posición de fuerza, no de necesidad</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p1"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Cerrar tercer cliente fee fijo — verticals: CPG, real estate o educación</div><div class="task-meta"><span class="task-tag biz">Negocio</span><span>Meta visión 2–3 años: 5 clientes</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Escalar a Escenario C de inversión en marca — $7,000–8,000/mes</div><div class="task-meta"><span class="task-tag strategy">Estrategia</span><span>Con 3 clientes la caja lo permite</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Publicar el "Victoria Teams State of Latino Marketing" — reporte anual de la industria</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Genera PR, LinkedIn, inbound leads</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p2"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Estructurar equipo para escala — modelo de talento expandible sin convertirse en agencia tradicional</div><div class="task-meta"><span class="task-tag ops">Ops</span><span>Freelancers senior + coordinación Kathe</span></div></div></div>
+      <div class="task" onclick="toggleTask(this)"><div class="priority-dot p3"></div><div class="task-chk"></div><div class="task-body"><div class="task-title">Aplicar a premios de industria americana — Effie US, Ad Age Agency of the Year Latino</div><div class="task-meta"><span class="task-tag brand">Marca</span><span>Las credenciales americanas abren nuevas puertas</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="div"><span class="div-label">KPIs del CEO · Qué medir cada mes</span><div class="div-line"></div></div>
+  <div class="g3">
+    <div class="card card-accent">
+      <h4>Negocio</h4>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body">N° de clientes con fee fijo activo</div></div>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body">Revenue mensual total</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body">N° de propuestas enviadas</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body">Tasa de conversión propuesta → cliente</div></div>
+    </div>
+    <div class="card card-blue">
+      <h4>Marca</h4>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body">Visitas web / mes (Google Analytics)</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body">Seguidores LinkedIn Julio (growth/mes)</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body">Seguidores Instagram @victoria_teams</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body">Impresiones LinkedIn empresa</div></div>
+    </div>
+    <div class="card card-green">
+      <h4>Operaciones</h4>
+      <div class="finding"><div class="fd fd-red"></div><div class="finding-body">Margen neto por cliente (target 40%)</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body">NPS / satisfacción BDI (trimestral)</div></div>
+      <div class="finding"><div class="fd fd-amber"></div><div class="finding-body">Entregables completados en fecha</div></div>
+      <div class="finding"><div class="fd fd-green"></div><div class="finding-body">Horas invertidas vs. fee cobrado</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-brand">Victoria Teams</div>
+    <div class="foot-note">Plan de acción CEO · Uso interno · Marzo 2026 – Marzo 2027</div>
+  </div>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleTask(el){
+  el.classList.toggle('done');
+}
+function toggleMonth(id){
+  const tasks=document.getElementById(id);
+  const toggle=document.getElementById('t-'+id);
+  if(tasks.classList.contains('closed')){
+    tasks.classList.remove('closed');
+    toggle.textContent='▼';
+  }else{
+    tasks.classList.add('closed');
+    toggle.textContent='▶';
+  }
+}
+</script>
+</body>
+</html>
